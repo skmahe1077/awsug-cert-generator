@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AWSUG Trichy Certificate Verification</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 2rem; }
+    .card { max-width: 720px; border: 1px solid #e5e7eb; border-radius: 16px; padding: 1.25rem 1.25rem; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+    h1 { margin: 0 0 0.75rem 0; font-size: 1.4rem; }
+    .muted { color: #6b7280; }
+    .status { font-weight: 700; }
+    .ok { color: #047857; }
+    .bad { color: #b91c1c; }
+    .row { margin: 0.5rem 0; }
+    code { background: #f3f4f6; padding: 0.1rem 0.3rem; border-radius: 6px; }
+    footer { margin-top: 1.25rem; color: #6b7280; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>AWS User Group Trichy — Certificate Verification</h1>
+    <div class="row muted">Enter a certificate ID or use a URL like <code>?id=AWSUGTRY-2026-0001</code></div>
+
+    <div class="row">
+      <input id="cid" placeholder="Certificate ID" style="padding:0.6rem;border:1px solid #e5e7eb;border-radius:10px;width: 320px;" />
+      <button id="btn" style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;border-radius:10px;cursor:pointer;">Verify</button>
+    </div>
+
+    <div id="result" class="row"></div>
+
+    <footer>
+      Community-led verification page. Not an official AWS service.
+    </footer>
+  </div>
+
+<script>
+async function loadManifest() {
+  const res = await fetch('./issued.json', { cache: 'no-store' });
+  if (!res.ok) throw new Error('Could not load issued.json from GitHub Pages.');
+  return await res.json();
+}
+
+function qs(name) {
+  const params = new URLSearchParams(location.search);
+  return params.get(name) || '';
+}
+
+function render(status, html) {
+  const el = document.getElementById('result');
+  el.innerHTML = '<div class="status ' + (status ? 'ok' : 'bad') + '">' +
+    (status ? 'VALID' : 'NOT FOUND') +
+    '</div>' + (html ? '<div style="margin-top:0.5rem">' + html + '</div>' : '');
+}
+
+async function verify(id) {
+  if (!id) { render(false, 'Please enter a certificate ID.'); return; }
+  try {
+    const manifest = await loadManifest();
+    const rec = (manifest.issued || []).find(x => x.certificate_id === id);
+    if (!rec) { render(false, 'No record found for <code>' + id + '</code>.'); return; }
+
+    render(true, `
+      <div class="row"><span class="muted">Certificate ID:</span> <code>${rec.certificate_id}</code></div>
+      <div class="row"><span class="muted">Event:</span> ${rec.event_title}</div>
+      <div class="row"><span class="muted">Date:</span> ${rec.event_date}</div>
+      <div class="row"><span class="muted">Location:</span> ${rec.location}</div>
+      <div class="row"><span class="muted">Issued at:</span> ${rec.issued_at}</div>
+    `);
+  } catch (e) {
+    render(false, e.message);
+  }
+}
+
+document.getElementById('btn').addEventListener('click', () => verify(document.getElementById('cid').value.trim()));
+document.getElementById('cid').addEventListener('keydown', (e) => { if (e.key === 'Enter') verify(e.target.value.trim()); });
+
+const initial = qs('id');
+if (initial) {
+  document.getElementById('cid').value = initial;
+  verify(initial);
+}
+</script>
+</body>
+</html>

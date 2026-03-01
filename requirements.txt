@@ -1,0 +1,6 @@
+reportlab==4.2.5
+Pillow==10.4.0
+PyYAML==6.0.2
+Flask>=3.0.0
+pdf2image>=1.17.0
+

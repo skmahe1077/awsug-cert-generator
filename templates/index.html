@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS User Group | Participation Certificate</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --aws-orange:  #FF9900;
+      --aws-navy:    #232F3E;
+      --aws-dark:    #131921;
+      --aws-mid:     #37475A;
+      --accent-purple: #7B2FBE;
+      --accent-teal:   #00A896;
+      --glass-bg:    rgba(255,255,255,0.06);
+      --glass-border:rgba(255,255,255,0.12);
+      --card-bg:     #ffffff;
+      --input-bg:    #F8FAFC;
+      --text-muted:  #64748B;
+      --border-color:#E2E8F0;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F0F4F8;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    /* ── HERO ──────────────────────────────────────────────────────────────── */
+    .hero-wrap {
+      background: linear-gradient(135deg, #0F1923 0%, #1A2B3C 40%, #232F3E 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+    }
+    .hero-wrap::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,153,0,0.15) 0%, transparent 70%);
+      top: -200px; right: -100px;
+      pointer-events: none;
+    }
+    .hero-wrap::after {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(123,47,190,0.12) 0%, transparent 70%);
+      bottom: -150px; left: -100px;
+      pointer-events: none;
+    }
+
+    .navbar-custom {
+      background: rgba(15,25,35,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,153,0,0.2);
+      padding: 0.9rem 0;
+    }
+    .navbar-brand-text {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+      letter-spacing: 0.3px;
+    }
+    .navbar-brand-text span { color: var(--aws-orange); }
+    .nav-badge {
+      background: linear-gradient(135deg, var(--aws-orange), #e67e00);
+      color: #000;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero-content {
+      padding: 4rem 0 3.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,153,0,0.12);
+      border: 1px solid rgba(255,153,0,0.3);
+      color: var(--aws-orange);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero-title span { color: var(--aws-orange); }
+    .hero-subtitle {
+      color: #94A3B8;
+      font-size: 1rem;
+      font-weight: 400;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .hero-stat {
+      text-align: left;
+    }
+    .hero-stat .number {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--aws-orange);
+      line-height: 1;
+    }
+    .hero-stat .label {
+      font-size: 0.72rem;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 3px;
+    }
+
+    /* ── MAIN LAYOUT ───────────────────────────────────────────────────────── */
+    .main-wrap {
+      padding: 2.5rem 0 4rem;
+    }
+
+    /* ── SECTION LABELS ────────────────────────────────────────────────────── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+    .section-label .icon-box {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .icon-box.orange { background: linear-gradient(135deg, #FF9900, #e67e00); color: #000; }
+    .icon-box.navy   { background: linear-gradient(135deg, #232F3E, #37475A); color: #fff; }
+    .icon-box.teal   { background: linear-gradient(135deg, #00A896, #007A6E); color: #fff; }
+    .icon-box.purple { background: linear-gradient(135deg, #7B2FBE, #5B1F8E); color: #fff; }
+    .section-label .title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #1E293B;
+    }
+    .section-label .subtitle {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    /* ── CARDS ─────────────────────────────────────────────────────────────── */
+    .form-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid #EEF2F7;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      transition: box-shadow 0.2s;
+    }
+    .form-card:hover {
+      box-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .form-card-header {
+      padding: 1.1rem 1.5rem;
+      border-bottom: 1px solid #F1F5F9;
+      background: #FAFBFC;
+    }
+    .form-card-body {
+      padding: 1.5rem;
+    }
+
+    /* ── INPUTS ────────────────────────────────────────────────────────────── */
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .form-control {
+      background: var(--input-bg);
+      border: 1.5px solid var(--border-color);
+      border-radius: 10px;
+      font-size: 0.9rem;
+      padding: 0.6rem 0.9rem;
+      color: #1E293B;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-control:focus {
+      border-color: var(--aws-orange);
+      box-shadow: 0 0 0 3px rgba(255,153,0,0.12);
+      background: #fff;
+      outline: none;
+    }
+    .form-text {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    /* ── UPLOAD ZONES ──────────────────────────────────────────────────────── */
+    .upload-zone {
+      border: 2px dashed #CBD5E1;
+      border-radius: 12px;
+      background: #F8FAFC;
+      padding: 1.4rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .upload-zone:hover, .upload-zone.dragover {
+      border-color: var(--aws-orange);
+      background: #FFF8EE;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255,153,0,0.12);
+    }
+    .upload-zone input[type="file"] {
+      position: absolute; inset: 0;
+      opacity: 0; cursor: pointer;
+      width: 100%; height: 100%;
+    }
+    .upload-zone .uz-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #FF9900, #e67e00);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 0.8rem;
+      font-size: 1.2rem;
+      color: #000;
+    }
+    .upload-zone .uz-icon.teal { background: linear-gradient(135deg, #00A896, #007A6E); color: #fff; }
+    .upload-zone .uz-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #374151;
+    }
+    .upload-zone .uz-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .upload-zone .uz-fname {
+      font-size: 0.75rem;
+      color: #059669;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      word-break: break-all;
+    }
+
+    /* ── CSV FORMAT BOX ────────────────────────────────────────────────────── */
+    .csv-box {
+      background: #0F1923;
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.78rem;
+      line-height: 1.9;
+      overflow-x: auto;
+      border: 1px solid rgba(255,153,0,0.15);
+    }
+    .csv-box .csv-header { color: var(--aws-orange); font-weight: 700; }
+    .csv-box .csv-row    { color: #94A3B8; }
+
+    /* ── GENERATE BUTTON ───────────────────────────────────────────────────── */
+    .btn-generate {
+      background: linear-gradient(135deg, #FF9900 0%, #e67e00 100%);
+      color: #000;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.85rem 2rem;
+      border: none;
+      border-radius: 12px;
+      width: 100%;
+      letter-spacing: 0.3px;
+      box-shadow: 0 4px 15px rgba(255,153,0,0.35);
+      transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-generate:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255,153,0,0.45);
+      background: linear-gradient(135deg, #FFB300 0%, #FF9900 100%);
+    }
+    .btn-generate:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+
+    /* ── SAMPLE CSV BUTTON ─────────────────────────────────────────────────── */
+    .btn-sample {
+      background: transparent;
+      border: 1.5px solid var(--border-color);
+      color: #374151;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 8px;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 5px;
+    }
+    .btn-sample:hover {
+      border-color: var(--aws-orange);
+      color: var(--aws-orange);
+      background: rgba(255,153,0,0.05);
+    }
+
+    /* ── PRIVACY PILL ──────────────────────────────────────────────────────── */
+    .privacy-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      color: #166534;
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+
+    /* ── SPINNER OVERLAY ───────────────────────────────────────────────────── */
+    #spinner-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(15,25,35,0.85);
+      backdrop-filter: blur(6px);
+      z-index: 9999;
+      align-items: center; justify-content: center;
+      flex-direction: column; gap: 1.2rem;
+    }
+    #spinner-overlay.show { display: flex; }
+    .spin-ring {
+      width: 64px; height: 64px;
+      border: 4px solid rgba(255,153,0,0.2);
+      border-top-color: var(--aws-orange);
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #spinner-overlay .spin-msg {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    #spinner-overlay .spin-sub {
+      color: #64748B;
+      font-size: 0.82rem;
+    }
+
+    /* ── ALERT ─────────────────────────────────────────────────────────────── */
+    .alert { border-radius: 12px; font-size: 0.88rem; border: none; }
+    .alert-danger { background: #FEF2F2; color: #B91C1C; }
+
+    /* ── FOOTER ────────────────────────────────────────────────────────────── */
+    footer {
+      background: var(--aws-dark);
+      color: #475569;
+      font-size: 0.8rem;
+      padding: 1.4rem 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    footer a { color: var(--aws-orange); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── DIVIDER ───────────────────────────────────────────────────────────── */
+    .or-divider {
+      text-align: center;
+      position: relative;
+      margin: 0.5rem 0;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+    .or-divider::before, .or-divider::after {
+      content: '';
+      position: absolute;
+      top: 50%; width: 42%;
+      height: 1px; background: var(--border-color);
+    }
+    .or-divider::before { left: 0; }
+    .or-divider::after  { right: 0; }
+
+    /* ── OPTIONAL TAG ──────────────────────────────────────────────────────── */
+    .tag-optional {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: #F1F5F9;
+      padding: 1px 7px;
+      border-radius: 4px;
+      vertical-align: middle;
+      margin-left: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── REQUIRED STAR ─────────────────────────────────────────────────────── */
+    .req { color: #EF4444; margin-left: 2px; }
+
+    /* ── FORMAT TOGGLE ─────────────────────────────────────────────────────── */
+    .format-toggle {
+      display: flex;
+      gap: 8px;
+    }
+    .fmt-btn {
+      flex: 1;
+      text-align: center;
+      padding: 0.55rem 0.5rem;
+      border: 1.5px solid var(--border-color);
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.18s;
+      background: var(--input-bg);
+      user-select: none;
+    }
+    .fmt-btn:hover {
+      border-color: var(--aws-orange);
+      color: #1E293B;
+    }
+    input[type="radio"]:checked + .fmt-btn {
+      background: linear-gradient(135deg, #FF9900, #e67e00);
+      border-color: transparent;
+      color: #000;
+      box-shadow: 0 2px 8px rgba(255,153,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar-custom">
+  <div class="container d-flex align-items-center justify-content-between">
+    <div class="navbar-brand-text">
+      <i class="bi bi-award-fill me-2" style="color:var(--aws-orange)"></i>
+      AWS User Group <span>Community</span>
+    </div>
+    <span class="nav-badge">Organizer Portal</span>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero-wrap">
+  <div class="container hero-content">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <div class="hero-eyebrow">
+          <i class="bi bi-lightning-fill"></i> Certificate Generator
+        </div>
+        <h1 class="hero-title">
+          AWS User Group<br/><span>Participation Certificate</span>
+        </h1>
+        <p class="hero-subtitle">
+          Generate professional participation certificates for your AWS community event attendees in seconds.
+        </p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="number">PDF</div>
+            <div class="label">Output Format</div>
+          </div>
+          <div class="hero-stat">
+            <div class="number">ZIP</div>
+            <div class="label">Bulk Download</div>
+          </div>
+          <div class="hero-stat">
+            <div class="number">100%</div>
+            <div class="label">Local &amp; Private</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Spinner Overlay -->
+<div id="spinner-overlay">
+  <div class="spin-ring"></div>
+  <div class="spin-msg">Generating certificates…</div>
+  <div class="spin-sub">This may take a few moments for large batches</div>
+</div>
+
+<!-- Main -->
+<div class="main-wrap">
+  <div class="container">
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissible fade show mb-4" role="alert">
+            <i class="bi bi-exclamation-circle-fill me-2"></i>{{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/generate" enctype="multipart/form-data" id="cert-form">
+      <div class="row g-4">
+
+        <!-- ── LEFT COLUMN ──────────────────────────────────────────────── -->
+        <div class="col-lg-7">
+
+          <!-- Event Details -->
+          <div class="form-card">
+            <div class="form-card-header">
+              <div class="section-label mb-0">
+                <div class="icon-box orange"><i class="bi bi-calendar-event-fill"></i></div>
+                <div>
+                  <div class="title">Event Details</div>
+                  <div class="subtitle">Information printed on each certificate</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-card-body">
+              <div class="row g-3">
+
+                <div class="col-12">
+                  <label class="form-label">User Group Name <span class="req">*</span></label>
+                  <input type="text" class="form-control" name="group_name"
+                    value=""
+                    placeholder="e.g. AWS User Group Chennai" required/>
+                  <div class="form-text">Displayed prominently at the top of every certificate</div>
+                </div>
+
+                <div class="col-md-8">
+                  <label class="form-label">Event Title <span class="req">*</span></label>
+                  <input type="text" class="form-control" name="event_title"
+                    value=""
+                    placeholder="e.g. AWS User Group Monthly Meetup" required/>
+                </div>
+
+                <div class="col-md-4">
+                  <label class="form-label">Event Date</label>
+                  <input type="date" class="form-control" name="event_date"/>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label">Location</label>
+                  <input type="text" class="form-control" name="location"
+                    value=""
+                    placeholder="e.g. Chennai, Tamil Nadu"/>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Logos & Signature -->
+          <div class="form-card">
+            <div class="form-card-header">
+              <div class="section-label mb-0">
+                <div class="icon-box navy"><i class="bi bi-images"></i></div>
+                <div>
+                  <div class="title">Logos &amp; Signature <span class="tag-optional">Optional</span></div>
+                  <div class="subtitle">Falls back to bundled assets if not uploaded</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-card-body">
+              <div class="row g-3">
+
+                <div class="col-md-6">
+                  <label class="form-label">AWS User Group Logo</label>
+                  <div class="upload-zone" id="zone-left-logo">
+                    <input type="file" name="left_logo" accept="image/*"
+                      onchange="showFilename(this,'zone-left-logo')"/>
+                    <div class="uz-icon"><i class="bi bi-image-fill"></i></div>
+                    <div class="uz-title">User Group Logo</div>
+                    <div class="uz-sub">PNG / JPG with transparent background</div>
+                    <div class="uz-fname" id="fname-zone-left-logo"></div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Organizer Signature</label>
+                  <div class="upload-zone" id="zone-signature">
+                    <input type="file" name="signature" accept="image/*"
+                      onchange="showFilename(this,'zone-signature')"/>
+                    <div class="uz-icon"><i class="bi bi-pen-fill"></i></div>
+                    <div class="uz-title">Signature Image</div>
+                    <div class="uz-sub">PNG with transparent background</div>
+                    <div class="uz-fname" id="fname-zone-signature"></div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="mt-3 p-3 rounded-3" style="background:#F8FAFC;border:1px solid #E2E8F0;font-size:0.78rem;color:#64748B;">
+                <i class="bi bi-info-circle me-1 text-primary"></i>
+                The <strong>AWS User Group Member badge</strong> is used as the right logo automatically. Upload a custom logo above only if needed.
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /left col -->
+
+        <!-- ── RIGHT COLUMN ─────────────────────────────────────────────── -->
+        <div class="col-lg-5">
+
+          <!-- CSV Upload -->
+          <div class="form-card">
+            <div class="form-card-header">
+              <div class="section-label mb-0">
+                <div class="icon-box teal"><i class="bi bi-table"></i></div>
+                <div>
+                  <div class="title">Participants CSV <span class="req">*</span></div>
+                  <div class="subtitle">Upload your attendee list</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-card-body">
+
+              <div class="upload-zone mb-3" id="zone-csv" style="padding:2rem 1rem;">
+                <input type="file" name="csv_file" accept=".csv" required
+                  onchange="showFilename(this,'zone-csv')"/>
+                <div class="uz-icon teal" style="width:52px;height:52px;font-size:1.4rem;">
+                  <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                </div>
+                <div class="uz-title" style="font-size:0.9rem;">Click to upload CSV</div>
+                <div class="uz-sub">or drag and drop your file here</div>
+                <div class="uz-fname" id="fname-zone-csv"></div>
+              </div>
+
+              <!-- Format reference -->
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span style="font-size:0.78rem;font-weight:600;color:#374151;">
+                  <i class="bi bi-code-square me-1 text-muted"></i>Required Format
+                </span>
+                <a href="/sample-csv" class="btn-sample">
+                  <i class="bi bi-download"></i> Sample CSV
+                </a>
+              </div>
+
+              <div class="csv-box">
+                <div><span class="csv-header">name</span>,<span class="csv-header">member_id</span>,<span class="csv-header">role</span></div>
+                <div class="csv-row">Anitha R,MEM001,participant</div>
+                <div class="csv-row">Suresh K,MEM002,<span style="color:#FF9900;">speaker</span></div>
+                <div class="csv-row">Priya M,MEM003,participant</div>
+              </div>
+
+              <ul class="mt-3 mb-0 ps-3" style="font-size:0.78rem;color:#64748B;line-height:2;">
+                <li><strong style="color:#1E293B;">name</strong> — participant's full name <span style="color:#EF4444;">(required)</span></li>
+                <li><strong style="color:#1E293B;">member_id</strong> — shown as Member ID; auto-generated if blank</li>
+                <li><strong style="color:#1E293B;">role</strong> — <code>participant</code> (default) or <code>speaker</code></li>
+                <li>Speakers receive a <strong style="color:#FF9900;">Certificate of Appreciation</strong> with a Speaker badge</li>
+              </ul>
+
+            </div>
+          </div>
+
+          <!-- Generate -->
+          <div class="form-card">
+            <div class="form-card-header">
+              <div class="section-label mb-0">
+                <div class="icon-box purple"><i class="bi bi-lightning-charge-fill"></i></div>
+                <div>
+                  <div class="title">Generate &amp; Download</div>
+                  <div class="subtitle">All certificates in one ZIP file</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-card-body">
+
+              <!-- Output format toggle -->
+              <div class="mb-3">
+                <label class="form-label">Output Format</label>
+                <div class="format-toggle">
+                  <input type="radio" name="output_format" id="fmt-pdf" value="pdf" checked hidden/>
+                  <label for="fmt-pdf" class="fmt-btn">
+                    <i class="bi bi-file-earmark-pdf-fill"></i> PDF
+                  </label>
+                  <input type="radio" name="output_format" id="fmt-img" value="image" hidden/>
+                  <label for="fmt-img" class="fmt-btn">
+                    <i class="bi bi-file-earmark-image-fill"></i> Image (PNG)
+                  </label>
+                </div>
+                <div class="form-text">PNG images are ideal for sharing on social media</div>
+              </div>
+
+              <button type="submit" class="btn-generate" id="btn-generate">
+                <i class="bi bi-file-zip-fill" style="font-size:1.1rem;"></i>
+                Generate &amp; Download ZIP
+              </button>
+              <div class="text-center mt-3">
+                <span class="privacy-pill">
+                  <i class="bi bi-shield-lock-fill"></i>
+                  100% local — no data leaves your machine
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /right col -->
+      </div><!-- /row -->
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="container d-flex align-items-center justify-content-between flex-wrap gap-2">
+    <span>
+      <i class="bi bi-award-fill me-1" style="color:var(--aws-orange)"></i>
+      AWS User Group Participation Certificate &mdash; Runs Locally
+    </span>
+    <span>
+      Built by <strong style="color:#CBD5E1;">Mahendran Selvakumar</strong>
+      &nbsp;&middot;&nbsp; For AWS User Group Organizers Worldwide
+    </span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function showFilename(input, zoneId) {
+    const el = document.getElementById("fname-" + zoneId);
+    if (input.files && input.files[0]) {
+      el.innerHTML = '<i class="bi bi-check-circle-fill me-1"></i>' + input.files[0].name;
+    }
+  }
+
+  document.querySelectorAll(".upload-zone").forEach(zone => {
+    zone.addEventListener("dragover", e => { e.preventDefault(); zone.classList.add("dragover"); });
+    zone.addEventListener("dragleave", () => zone.classList.remove("dragover"));
+    zone.addEventListener("drop", () => zone.classList.remove("dragover"));
+  });
+
+  document.getElementById("cert-form").addEventListener("submit", function () {
+    const csv = document.querySelector('input[name="csv_file"]');
+    if (!csv.files || !csv.files[0]) return;
+    document.getElementById("spinner-overlay").classList.add("show");
+    document.getElementById("btn-generate").disabled = true;
+    setTimeout(() => {
+      document.getElementById("spinner-overlay").classList.remove("show");
+      document.getElementById("btn-generate").disabled = false;
+    }, 30000);
+  });
+
+  window.addEventListener("load", () => {
+    document.getElementById("spinner-overlay").classList.remove("show");
+  });
+</script>
+</body>
+</html>

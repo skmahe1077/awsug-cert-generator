@@ -1,0 +1,15 @@
+name: awsug-cert-generator
+
+services:
+  cert-generator:
+    build: .
+    image: awsug-cert-generator:latest
+    container_name: awsug-cert-generator
+    ports:
+      - "8080:8080"
+    volumes:
+      # Persist generated certificates on the host
+      - ./output:/app/output
+      # Persist downloaded fonts so they aren't re-fetched on restart
+      - ./assets/fonts:/app/assets/fonts
+    restart: unless-stopped

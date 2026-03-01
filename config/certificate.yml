@@ -1,0 +1,56 @@
+group_name: "AWS User Group"
+
+certificate:
+  page_size: "A4"          # A4 or LETTER
+  orientation: "landscape" # landscape or portrait
+  title: "Certificate of Participation"
+  subtitle: "This certificate acknowledges participation in an AWS User Group Community-led Event"
+  footer_note: "Community-led. Not an official AWS certification."
+  id_label: "Member ID"
+  font_name: "Helvetica"
+  font_name_bold: "Helvetica-Bold"
+  name_font_size: 38
+  body_font_size: 14
+
+event_defaults:
+  event_title: "AWS User Group Meetup"
+  event_date: "2026-02-10"
+  location: "Tiruchirappalli, Tamil Nadu"
+
+# Auto-generate certificate IDs if certificate_id is missing in CSV
+# Format: AWSUGTRY-2026-02-001, AWSUGTRY-2026-02-002, ...
+id_format:
+  prefix: "AWSUGTRY"
+  year_month: "2026-02"
+  start: 1
+  width: 3
+
+assets:
+  left_logo: "assets/logos/awsug_trichy.png"
+  right_logo: "assets/logos/Usergroups_badges_member.png"
+  signature_1: "assets/signatures/organizer_1.png"
+
+output:
+  pdf_dir: "output/pdfs"
+
+# --- Visual styling ---
+style:
+  background:
+    enabled: true
+    # subtle light background (very light gray-blue)
+    rgb: [248, 250, 252]
+
+  accent_bars:
+    enabled: true
+    top_height: 10
+    bottom_height: 10
+    # subtle navy accent
+    rgb: [15, 23, 42]
+
+# --- Watermark (AWS logo) ---
+watermark:
+  enabled: true
+  image: "assets/logos/Usergroups_badges_member.png"
+  opacity: 0.08                        # 0.06–0.12 recommended
+  max_width: 520
+  max_height: 320
