@@ -1,4 +1,4 @@
-# AWS User Group — Certificate Generator
+# AWS User Group Participation Certificate Generator
 
 A local web application for AWS User Group organizers to generate **participation and speaker certificates** as PDFs or PNG images from a CSV file.
 
@@ -8,14 +8,14 @@ A local web application for AWS User Group organizers to generate **participatio
 
 ## Features
 
-- **Web UI** — browser-based form; no command-line knowledge required
-- **Batch generation** — upload a CSV and generate all certificates in one click
-- **Two certificate types** — Participation and Speaker (auto-detected from CSV `role` column)
-- **PDF and PNG output** — download as a ZIP archive
-- **Custom branding** — upload your own AWS User Group logo and organizer signature
-- **Elegant typography** — Playfair Display Bold for participant names (auto-downloaded)
-- **Watermark** — AWS User Groups badge subtly watermarked in the background
-- **Docker support** — run with a single `docker compose up` command
+- **Web UI:** browser-based form; no command-line knowledge required
+- **Batch generation:** upload a CSV and generate all certificates in one click
+- **Two certificate types:**  Participation and Speaker (auto-detected from CSV `role` column)
+- **PDF and PNG output:**  download as a ZIP archive
+- **Custom branding:**  upload your own AWS User Group logo and organizer signature
+- **Elegant typography:**  Playfair Display Bold for participant names (auto-downloaded)
+- **Watermark:**  AWS User Groups badge subtly watermarked in the background
+- **Docker support:**  run with a single `docker compose up` command
 
 ---
 
@@ -59,7 +59,7 @@ awsug-cert-generator/
 
 ## Quick Start
 
-### Option A — Local Python (Recommended for development)
+### Option A — Local Python
 
 #### 1. Requirements
 
@@ -165,7 +165,7 @@ cert-generator start --host 0.0.0.0 --port 8080
 
 | Field | Description |
 |-------|-------------|
-| AWS User Group Name | Your group name (e.g., "AWS User Group Bangalore") |
+| AWS User Group Name | Your group name (e.g., "AWS User Group Trichy") |
 | Event Title | Name of the event (e.g., "AWS Community Day 2026") |
 | Event Date | Date shown on the certificate |
 | Location | City / venue shown on the certificate |
@@ -191,9 +191,9 @@ Upload a `.csv` file with the following columns:
 
 ```csv
 name,member_id,role
-Anitha R,MEM001,participant
-Suresh K,MEM002,speaker
-Priya M,MEM003,participant
+Mahendran S,MEM001,participant
+Idhazhini M,MEM002,speaker
+Arun K,MEM003,participant
 ```
 
 > You can download a sample CSV directly from the web UI by clicking **"Download Sample CSV"**.
