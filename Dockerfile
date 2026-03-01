@@ -1,4 +1,4 @@
-# ── Stage 1: Builder ──────────────────────────────────────────────────────────
+# Stage 1: Builder 
 FROM python:3.12-slim AS builder
 
 WORKDIR /app
@@ -10,7 +10,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
 
-# ── Stage 2: Runtime ──────────────────────────────────────────────────────────
+# Stage 2: Runtime 
 FROM python:3.12-slim
 
 # Install poppler for pdf2image (PDF → PNG conversion)
@@ -40,7 +40,7 @@ COPY assets/       ./assets/
 RUN mkdir -p output/pdfs assets/fonts
 
 # Expose port
-EXPOSE 8080
+EXPOSE 5050
 
 # Non-root user for security
 RUN useradd -m -u 1001 certuser && chown -R certuser:certuser /app
@@ -48,6 +48,6 @@ USER certuser
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
-  CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8080/')" || exit 1
+  CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:5050/')" || exit 1
 
 CMD ["python", "app.py"]

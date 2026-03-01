@@ -1,11 +1,15 @@
 from __future__ import annotations
 
 import io
+import logging
 import sys
 import zipfile
 import tempfile
 from datetime import datetime
 from pathlib import Path
+
+# Suppress Flask/Werkzeug development server warning — this tool is local-only
+logging.getLogger("werkzeug").setLevel(logging.ERROR)
 
 from flask import Flask, render_template, request, send_file, flash, redirect, url_for
 
@@ -85,7 +89,7 @@ def generate():
         flash("Only .csv files are accepted for participants.", "danger")
         return redirect(url_for("index"))
 
-    # ── Work inside a temp directory ──────────────────────────────────────────
+    # Work inside a temp directory
     with tempfile.TemporaryDirectory() as _tmpdir:
         tmpdir = Path(_tmpdir)
 
@@ -191,7 +195,7 @@ def generate():
             flash(msg, "danger")
             return redirect(url_for("index"))
 
-        # ── Convert to PNG if image format requested ──────────────────────
+        # Convert to PNG if image format requested
         zip_buffer = io.BytesIO()
         if output_format == "image":
             try:
@@ -215,7 +219,8 @@ def generate():
 
     # Temp dir is deleted here — zip_data is safely in memory
     suffix = "images" if output_format == "image" else "certificates"
-    download_name = f"{suffix}-{event_title.replace(' ', '_')}.zip"
+    safe_event = event_title.replace(" ", "_")
+    download_name = f"{safe_event}-{suffix}.zip"
     return send_file(
         io.BytesIO(zip_data),
         mimetype="application/zip",
@@ -226,5 +231,5 @@ def generate():
 
 if __name__ == "__main__":
     print("Starting AWS UG Certificate Generator...")
-    print("Open http://localhost:8080 in your browser")
-    app.run(debug=False, host="0.0.0.0", port=8080)
+    print("Open http://localhost:5050 in your browser")
+    app.run(debug=False, host="0.0.0.0", port=5050)

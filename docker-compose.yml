@@ -6,7 +6,7 @@ services:
     image: awsug-cert-generator:latest
     container_name: awsug-cert-generator
     ports:
-      - "8080:8080"
+      - "5050:5050"
     volumes:
       # Persist generated certificates on the host
       - ./output:/app/output
