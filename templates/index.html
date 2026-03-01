@@ -9,74 +9,77 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --aws-orange:  #FF9900;
-      --aws-navy:    #232F3E;
-      --aws-dark:    #131921;
-      --aws-mid:     #37475A;
-      --accent-purple: #7B2FBE;
-      --accent-teal:   #00A896;
-      --glass-bg:    rgba(255,255,255,0.06);
-      --glass-border:rgba(255,255,255,0.12);
-      --card-bg:     #ffffff;
-      --input-bg:    #F8FAFC;
-      --text-muted:  #64748B;
-      --border-color:#E2E8F0;
+      --aws-orange:   #FF9900;
+      --aws-gold:     #FFB347;
+      --bg-base:      #080C14;
+      --bg-surface:   #0E1520;
+      --bg-raised:    #141D2E;
+      --bg-header:    #0A1018;
+      --border-subtle:#1C2A3E;
+      --border-glow:  rgba(255,153,0,0.25);
+      --text-primary: #F0F4FA;
+      --text-secondary:#B8CBDF;
+      --text-muted:   #8AA4C0;
+      --input-bg:     #0A1018;
+      --border-color: #1C2A3E;
     }
 
     * { box-sizing: border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #F0F4F8;
+      background: var(--bg-base);
       min-height: 100vh;
       margin: 0;
+      color: var(--text-primary);
     }
 
     /* ── HERO ──────────────────────────────────────────────────────────────── */
     .hero-wrap {
-      background: linear-gradient(135deg, #0F1923 0%, #1A2B3C 40%, #232F3E 100%);
+      background: linear-gradient(135deg, #050810 0%, #0A1220 45%, #0D1830 100%);
       position: relative;
       overflow: hidden;
       padding: 0;
+      border-bottom: 1px solid var(--border-subtle);
     }
     .hero-wrap::before {
       content: '';
       position: absolute;
-      width: 600px; height: 600px;
+      width: 700px; height: 700px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,153,0,0.15) 0%, transparent 70%);
-      top: -200px; right: -100px;
+      background: radial-gradient(circle, rgba(255,153,0,0.12) 0%, transparent 65%);
+      top: -250px; right: -150px;
       pointer-events: none;
     }
     .hero-wrap::after {
       content: '';
       position: absolute;
-      width: 400px; height: 400px;
+      width: 500px; height: 500px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(123,47,190,0.12) 0%, transparent 70%);
-      bottom: -150px; left: -100px;
+      background: radial-gradient(circle, rgba(100,60,220,0.10) 0%, transparent 65%);
+      bottom: -200px; left: -120px;
       pointer-events: none;
     }
 
     .navbar-custom {
-      background: rgba(15,25,35,0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,153,0,0.2);
+      background: rgba(5,8,16,0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,153,0,0.18);
       padding: 0.9rem 0;
     }
     .navbar-brand-text {
       font-weight: 700;
       font-size: 1rem;
-      color: #fff;
+      color: var(--text-primary);
       letter-spacing: 0.3px;
     }
     .navbar-brand-text span { color: var(--aws-orange); }
     .nav-badge {
-      background: linear-gradient(135deg, var(--aws-orange), #e67e00);
+      background: linear-gradient(135deg, var(--aws-orange), #CC7700);
       color: #000;
       font-size: 0.68rem;
       font-weight: 700;
-      padding: 2px 10px;
+      padding: 3px 12px;
       border-radius: 20px;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -91,8 +94,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255,153,0,0.12);
-      border: 1px solid rgba(255,153,0,0.3);
+      background: rgba(255,153,0,0.10);
+      border: 1px solid rgba(255,153,0,0.30);
       color: var(--aws-orange);
       font-size: 0.75rem;
       font-weight: 600;
@@ -104,18 +107,19 @@
     }
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
+      font-size: 2rem;
       font-weight: 700;
-      color: #ffffff;
+      color: var(--text-primary);
       line-height: 1.2;
       margin-bottom: 1rem;
+      white-space: nowrap;
     }
     .hero-title span { color: var(--aws-orange); }
     .hero-subtitle {
-      color: #94A3B8;
+      color: var(--text-secondary);
       font-size: 1rem;
       font-weight: 400;
-      max-width: 520px;
+      white-space: nowrap;
       line-height: 1.7;
     }
     .hero-stats {
@@ -123,9 +127,7 @@
       gap: 2rem;
       margin-top: 2rem;
     }
-    .hero-stat {
-      text-align: left;
-    }
+    .hero-stat { text-align: left; }
     .hero-stat .number {
       font-size: 1.5rem;
       font-weight: 800;
@@ -134,10 +136,11 @@
     }
     .hero-stat .label {
       font-size: 0.72rem;
-      color: #64748B;
+      color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.8px;
       margin-top: 3px;
+      font-weight: 600;
     }
 
     /* ── MAIN LAYOUT ───────────────────────────────────────────────────────── */
@@ -159,38 +162,39 @@
       font-size: 0.9rem;
       flex-shrink: 0;
     }
-    .icon-box.orange { background: linear-gradient(135deg, #FF9900, #e67e00); color: #000; }
-    .icon-box.navy   { background: linear-gradient(135deg, #232F3E, #37475A); color: #fff; }
+    .icon-box.orange { background: linear-gradient(135deg, #FF9900, #CC7700); color: #000; }
+    .icon-box.navy   { background: linear-gradient(135deg, #1A2744, #253556); color: var(--text-primary); }
     .icon-box.teal   { background: linear-gradient(135deg, #00A896, #007A6E); color: #fff; }
     .icon-box.purple { background: linear-gradient(135deg, #7B2FBE, #5B1F8E); color: #fff; }
     .section-label .title {
       font-weight: 700;
       font-size: 0.95rem;
-      color: #1E293B;
+      color: #F0F4FA;
     }
     .section-label .subtitle {
       font-size: 0.75rem;
-      color: var(--text-muted);
+      color: #8AA4C0;
       margin-top: 1px;
     }
 
     /* ── CARDS ─────────────────────────────────────────────────────────────── */
     .form-card {
-      background: #fff;
+      background: var(--bg-surface);
       border-radius: 16px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.06);
-      border: 1px solid #EEF2F7;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.04) inset;
+      border: 1px solid var(--border-subtle);
       overflow: hidden;
       margin-bottom: 1.5rem;
-      transition: box-shadow 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
     .form-card:hover {
-      box-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 10px 30px rgba(0,0,0,0.08);
+      border-color: rgba(255,153,0,0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,153,0,0.06);
     }
     .form-card-header {
       padding: 1.1rem 1.5rem;
-      border-bottom: 1px solid #F1F5F9;
-      background: #FAFBFC;
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-header);
     }
     .form-card-body {
       padding: 1.5rem;
@@ -200,25 +204,27 @@
     .form-label {
       font-size: 0.8rem;
       font-weight: 600;
-      color: #374151;
+      color: #C8D8EA;
       margin-bottom: 0.4rem;
       text-transform: uppercase;
       letter-spacing: 0.4px;
     }
     .form-control {
       background: var(--input-bg);
-      border: 1.5px solid var(--border-color);
+      border: 1.5px solid var(--border-subtle);
       border-radius: 10px;
       font-size: 0.9rem;
       padding: 0.6rem 0.9rem;
-      color: #1E293B;
+      color: var(--text-primary);
       transition: border-color 0.2s, box-shadow 0.2s;
     }
+    .form-control::placeholder { color: #5E7A96; }
     .form-control:focus {
       border-color: var(--aws-orange);
       box-shadow: 0 0 0 3px rgba(255,153,0,0.12);
-      background: #fff;
+      background: var(--bg-surface);
       outline: none;
+      color: var(--text-primary);
     }
     .form-text {
       font-size: 0.75rem;
@@ -228,9 +234,9 @@
 
     /* ── UPLOAD ZONES ──────────────────────────────────────────────────────── */
     .upload-zone {
-      border: 2px dashed #CBD5E1;
+      border: 2px dashed var(--border-subtle);
       border-radius: 12px;
-      background: #F8FAFC;
+      background: var(--bg-header);
       padding: 1.4rem 1rem;
       text-align: center;
       cursor: pointer;
@@ -239,9 +245,9 @@
     }
     .upload-zone:hover, .upload-zone.dragover {
       border-color: var(--aws-orange);
-      background: #FFF8EE;
+      background: rgba(255,153,0,0.05);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255,153,0,0.12);
+      box-shadow: 0 4px 20px rgba(255,153,0,0.15);
     }
     .upload-zone input[type="file"] {
       position: absolute; inset: 0;
@@ -251,7 +257,7 @@
     .upload-zone .uz-icon {
       width: 44px; height: 44px;
       border-radius: 12px;
-      background: linear-gradient(135deg, #FF9900, #e67e00);
+      background: linear-gradient(135deg, #FF9900, #CC7700);
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 0.8rem;
       font-size: 1.2rem;
@@ -261,16 +267,16 @@
     .upload-zone .uz-title {
       font-size: 0.82rem;
       font-weight: 600;
-      color: #374151;
+      color: #F0F4FA;
     }
     .upload-zone .uz-sub {
       font-size: 0.72rem;
-      color: var(--text-muted);
+      color: #8AA4C0;
       margin-top: 2px;
     }
     .upload-zone .uz-fname {
       font-size: 0.75rem;
-      color: #059669;
+      color: #34D399;
       font-weight: 600;
       margin-top: 0.5rem;
       word-break: break-all;
@@ -278,21 +284,21 @@
 
     /* ── CSV FORMAT BOX ────────────────────────────────────────────────────── */
     .csv-box {
-      background: #0F1923;
+      background: #050810;
       border-radius: 10px;
       padding: 1rem 1.2rem;
       font-family: 'Courier New', monospace;
       font-size: 0.78rem;
       line-height: 1.9;
       overflow-x: auto;
-      border: 1px solid rgba(255,153,0,0.15);
+      border: 1px solid rgba(255,153,0,0.18);
     }
     .csv-box .csv-header { color: var(--aws-orange); font-weight: 700; }
-    .csv-box .csv-row    { color: #94A3B8; }
+    .csv-box .csv-row    { color: var(--text-secondary); }
 
     /* ── GENERATE BUTTON ───────────────────────────────────────────────────── */
     .btn-generate {
-      background: linear-gradient(135deg, #FF9900 0%, #e67e00 100%);
+      background: linear-gradient(135deg, #FF9900 0%, #CC7700 100%);
       color: #000;
       font-weight: 700;
       font-size: 1rem;
@@ -301,22 +307,22 @@
       border-radius: 12px;
       width: 100%;
       letter-spacing: 0.3px;
-      box-shadow: 0 4px 15px rgba(255,153,0,0.35);
+      box-shadow: 0 4px 20px rgba(255,153,0,0.40);
       transition: all 0.2s;
       display: flex; align-items: center; justify-content: center; gap: 8px;
     }
     .btn-generate:hover:not(:disabled) {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(255,153,0,0.45);
+      box-shadow: 0 8px 30px rgba(255,153,0,0.55);
       background: linear-gradient(135deg, #FFB300 0%, #FF9900 100%);
     }
-    .btn-generate:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+    .btn-generate:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
     /* ── SAMPLE CSV BUTTON ─────────────────────────────────────────────────── */
     .btn-sample {
       background: transparent;
-      border: 1.5px solid var(--border-color);
-      color: #374151;
+      border: 1.5px solid var(--border-subtle);
+      color: var(--text-secondary);
       font-size: 0.78rem;
       font-weight: 600;
       padding: 5px 14px;
@@ -328,7 +334,7 @@
     .btn-sample:hover {
       border-color: var(--aws-orange);
       color: var(--aws-orange);
-      background: rgba(255,153,0,0.05);
+      background: rgba(255,153,0,0.06);
     }
 
     /* ── PRIVACY PILL ──────────────────────────────────────────────────────── */
@@ -336,9 +342,9 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: #F0FDF4;
-      border: 1px solid #BBF7D0;
-      color: #166534;
+      background: rgba(52,211,153,0.08);
+      border: 1px solid rgba(52,211,153,0.2);
+      color: #34D399;
       font-size: 0.72rem;
       font-weight: 500;
       padding: 5px 12px;
@@ -349,8 +355,8 @@
     #spinner-overlay {
       display: none;
       position: fixed; inset: 0;
-      background: rgba(15,25,35,0.85);
-      backdrop-filter: blur(6px);
+      background: rgba(5,8,16,0.90);
+      backdrop-filter: blur(8px);
       z-index: 9999;
       align-items: center; justify-content: center;
       flex-direction: column; gap: 1.2rem;
@@ -358,35 +364,45 @@
     #spinner-overlay.show { display: flex; }
     .spin-ring {
       width: 64px; height: 64px;
-      border: 4px solid rgba(255,153,0,0.2);
+      border: 4px solid rgba(255,153,0,0.15);
       border-top-color: var(--aws-orange);
       border-radius: 50%;
       animation: spin 0.9s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
     #spinner-overlay .spin-msg {
-      color: #fff;
+      color: var(--text-primary);
       font-size: 1rem;
       font-weight: 500;
     }
     #spinner-overlay .spin-sub {
-      color: #64748B;
+      color: var(--text-muted);
       font-size: 0.82rem;
     }
 
     /* ── ALERT ─────────────────────────────────────────────────────────────── */
     .alert { border-radius: 12px; font-size: 0.88rem; border: none; }
-    .alert-danger { background: #FEF2F2; color: #B91C1C; }
+    .alert-danger { background: rgba(185,28,28,0.15); color: #FCA5A5; border: 1px solid rgba(185,28,28,0.3); }
+
+    /* ── INFO BOX (logo note) ──────────────────────────────────────────────── */
+    .info-box {
+      background: rgba(255,153,0,0.06);
+      border: 1px solid rgba(255,153,0,0.15);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
 
     /* ── FOOTER ────────────────────────────────────────────────────────────── */
     footer {
-      background: var(--aws-dark);
-      color: #475569;
+      background: #050810;
+      color: var(--text-secondary);
       font-size: 0.8rem;
       padding: 1.4rem 0;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255,153,0,0.15);
     }
-    footer a { color: var(--aws-orange); text-decoration: none; }
+    footer a { color: var(--aws-orange); text-decoration: none; font-weight: 700; }
     footer a:hover { text-decoration: underline; }
 
     /* ── DIVIDER ───────────────────────────────────────────────────────────── */
@@ -401,7 +417,7 @@
       content: '';
       position: absolute;
       top: 50%; width: 42%;
-      height: 1px; background: var(--border-color);
+      height: 1px; background: var(--border-subtle);
     }
     .or-divider::before { left: 0; }
     .or-divider::after  { right: 0; }
@@ -411,7 +427,8 @@
       font-size: 0.65rem;
       font-weight: 500;
       color: var(--text-muted);
-      background: #F1F5F9;
+      background: var(--bg-raised);
+      border: 1px solid var(--border-subtle);
       padding: 1px 7px;
       border-radius: 4px;
       vertical-align: middle;
@@ -421,36 +438,33 @@
     }
 
     /* ── REQUIRED STAR ─────────────────────────────────────────────────────── */
-    .req { color: #EF4444; margin-left: 2px; }
+    .req { color: #F87171; margin-left: 2px; }
 
     /* ── FORMAT TOGGLE ─────────────────────────────────────────────────────── */
-    .format-toggle {
-      display: flex;
-      gap: 8px;
-    }
+    .format-toggle { display: flex; gap: 8px; }
     .fmt-btn {
       flex: 1;
       text-align: center;
       padding: 0.55rem 0.5rem;
-      border: 1.5px solid var(--border-color);
+      border: 1.5px solid var(--border-subtle);
       border-radius: 10px;
       font-size: 0.82rem;
       font-weight: 600;
       color: var(--text-muted);
       cursor: pointer;
       transition: all 0.18s;
-      background: var(--input-bg);
+      background: var(--bg-header);
       user-select: none;
     }
     .fmt-btn:hover {
       border-color: var(--aws-orange);
-      color: #1E293B;
+      color: var(--text-primary);
     }
     input[type="radio"]:checked + .fmt-btn {
-      background: linear-gradient(135deg, #FF9900, #e67e00);
+      background: linear-gradient(135deg, #FF9900, #CC7700);
       border-color: transparent;
       color: #000;
-      box-shadow: 0 2px 8px rgba(255,153,0,0.3);
+      box-shadow: 0 2px 12px rgba(255,153,0,0.35);
     }
   </style>
 </head>
@@ -476,7 +490,7 @@
           <i class="bi bi-lightning-fill"></i> Certificate Generator
         </div>
         <h1 class="hero-title">
-          AWS User Group<br/><span>Participation Certificate</span>
+          AWS User Group <span>Participation Certificate</span>
         </h1>
         <p class="hero-subtitle">
           Generate professional participation certificates for your AWS community event attendees in seconds.
@@ -547,7 +561,7 @@
                   <label class="form-label">User Group Name <span class="req">*</span></label>
                   <input type="text" class="form-control" name="group_name"
                     value=""
-                    placeholder="e.g. AWS User Group Chennai" required/>
+                    placeholder="e.g. AWS User Group Trichy" required/>
                   <div class="form-text">Displayed prominently at the top of every certificate</div>
                 </div>
 
@@ -559,15 +573,15 @@
                 </div>
 
                 <div class="col-md-4">
-                  <label class="form-label">Event Date</label>
-                  <input type="date" class="form-control" name="event_date"/>
+                  <label class="form-label">Event Date <span class="req">*</span></label>
+                  <input type="date" class="form-control" name="event_date" required/>
                 </div>
 
                 <div class="col-12">
-                  <label class="form-label">Location</label>
+                  <label class="form-label">Location <span class="req">*</span></label>
                   <input type="text" class="form-control" name="location"
                     value=""
-                    placeholder="e.g. Chennai, Tamil Nadu"/>
+                    placeholder="e.g. Trichy, Tamil Nadu" required/>
                 </div>
 
               </div>
@@ -613,7 +627,7 @@
                 </div>
 
               </div>
-              <div class="mt-3 p-3 rounded-3" style="background:#F8FAFC;border:1px solid #E2E8F0;font-size:0.78rem;color:#64748B;">
+              <div class="mt-3 info-box">
                 <i class="bi bi-info-circle me-1 text-primary"></i>
                 The <strong>AWS User Group Member badge</strong> is used as the right logo automatically. Upload a custom logo above only if needed.
               </div>
@@ -651,7 +665,7 @@
 
               <!-- Format reference -->
               <div class="d-flex align-items-center justify-content-between mb-2">
-                <span style="font-size:0.78rem;font-weight:600;color:#374151;">
+                <span style="font-size:0.78rem;font-weight:600;color:#C8D8EA;">
                   <i class="bi bi-code-square me-1 text-muted"></i>Required Format
                 </span>
                 <a href="/sample-csv" class="btn-sample">
@@ -661,15 +675,15 @@
 
               <div class="csv-box">
                 <div><span class="csv-header">name</span>,<span class="csv-header">member_id</span>,<span class="csv-header">role</span></div>
-                <div class="csv-row">Anitha R,MEM001,participant</div>
-                <div class="csv-row">Suresh K,MEM002,<span style="color:#FF9900;">speaker</span></div>
-                <div class="csv-row">Priya M,MEM003,participant</div>
+                <div class="csv-row">Mahendran,MEM001,participant</div>
+                <div class="csv-row">Idhazhini,MEM002,<span style="color:#FF9900;">speaker</span></div>
+                <div class="csv-row">Arun,MEM003,participant</div>
               </div>
 
-              <ul class="mt-3 mb-0 ps-3" style="font-size:0.78rem;color:#64748B;line-height:2;">
-                <li><strong style="color:#1E293B;">name</strong> — participant's full name <span style="color:#EF4444;">(required)</span></li>
-                <li><strong style="color:#1E293B;">member_id</strong> — shown as Member ID; auto-generated if blank</li>
-                <li><strong style="color:#1E293B;">role</strong> — <code>participant</code> (default) or <code>speaker</code></li>
+              <ul class="mt-3 mb-0 ps-3" style="font-size:0.78rem;color:#8AA4C0;line-height:2;">
+                <li><strong style="color:#F0F4FA;">name</strong> — participant's full name <span style="color:#F87171;">(required)</span></li>
+                <li><strong style="color:#F0F4FA;">member_id</strong> — shown as Member ID; auto-generated if blank</li>
+                <li><strong style="color:#F0F4FA;">role</strong> — <code style="color:#B8CBDF;">participant</code> (default) or <code style="color:#B8CBDF;">speaker</code></li>
                 <li>Speakers receive a <strong style="color:#FF9900;">Certificate of Appreciation</strong> with a Speaker badge</li>
               </ul>
 
@@ -731,7 +745,7 @@
       AWS User Group Participation Certificate &mdash; Runs Locally
     </span>
     <span>
-      Built by <strong style="color:#CBD5E1;">Mahendran Selvakumar</strong>
+      Built by <a href="https://github.com/skmahe1077" target="_blank" rel="noopener" style="font-weight:700;">Mahendran Selvakumar</a>
       &nbsp;&middot;&nbsp; For AWS User Group Organizers Worldwide
     </span>
   </div>

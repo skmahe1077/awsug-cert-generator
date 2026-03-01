@@ -26,9 +26,9 @@ ALLOWED_CSV_EXTS = {".csv"}
 
 SAMPLE_CSV = (
     "name,member_id,role\n"
-    "Anitha R,MEM001,participant\n"
-    "Suresh K,MEM002,speaker\n"
-    "Priya M,MEM003,participant\n"
+    "Mahendran,MEM001,participant\n"
+    "Idhazhini,MEM002,speaker\n"
+    "Arun,MEM003,participant\n"
 )
 
 

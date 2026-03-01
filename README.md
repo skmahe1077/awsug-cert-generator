@@ -288,4 +288,4 @@ Replace `assets/signatures/organizer_1.png` with the organizer's signature image
 
 ---
 
-Built by [Mahendran Selvakumar](https://github.com/mahendranselvakumar) · For AWS User Group Organizers Worldwide
+Built by [Mahendran Selvakumar](https://github.com/skmahe1077) · For AWS User Group Organizers Worldwide
