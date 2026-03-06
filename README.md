@@ -59,7 +59,7 @@ awsug-cert-generator/
 
 ## Quick Start
 
-### Option A — Local Python
+### Option A — Using Python
 
 #### 1. Requirements
 
@@ -109,7 +109,7 @@ http://localhost:8080
 
 ---
 
-### Option B — Docker
+### Option B — Using Docker
 
 #### 1. Build and run
 
